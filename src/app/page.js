@@ -37,7 +37,7 @@ const homepageData = [
 export default function Home() {
   return (
     <>
-      <div className='flex flex-col items-center justify-center h-screen px-2'>
+      <div className='flex flex-col items-center justify-center w-full h-screen px-4'>
         <h1 className='text-5xl font-bold mb-20'>ChatGPT</h1>
         <div className='flex space-x-3 text-center bg'>
           {homepageData.map((group) => {
