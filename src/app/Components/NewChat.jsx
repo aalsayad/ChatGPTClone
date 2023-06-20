@@ -8,7 +8,6 @@ import React from 'react';
 import { db } from '../../../firebase';
 
 function NewChat() {
-  console.log(process.env.GOOGLE_ID);
   const router = useRouter();
   const { data: session } = useSession();
 

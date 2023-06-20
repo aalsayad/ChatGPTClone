@@ -19,7 +19,7 @@ function Sidebar() {
 
   return (
     <div className='p-4 flex flex-col h-screen bg-[#111010] max-w-xs  md:min-w-[20rem] justify-between'>
-      <div>
+      <div className='relative'>
         {/* New Chat */}
         <NewChat />
         <div className='mt-8'>
@@ -29,30 +29,27 @@ function Sidebar() {
         <div className='mt-8'>
           <div className='label-text'>Previous Chats</div>
         </div>
-        <div className='relative'></div>
-          {/* Map through the chat rows */}
-          <div className='pb-10 relative overflow-y-auto overflow-x-hidden max-h-[75dvh] mt-5 flex flex-col gap-3'>
-            <AnimatePresence initial='false'>
-              {chats?.docs?.map((chat) => {
-                return (
-                  <motion.div
-                    key={chat.id}
-                    initial={{ x: -170, opacity: 0.4 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -50, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: cubicBezier(0.76, 0, 0.24, 1) }}
-                  >
-                    <ChatRow id={chat.id} />
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
-          </div>
-
-          <div className='w-full h-6 bg-gradient-to-t from-[#111010] to-[transparent] absolute bottom-0'></div>
+        {/* Map through the chat rows */}
+        <div className='pb-10 relative overflow-y-auto overflow-x-hidden max-h-[75dvh] mt-5 flex flex-col gap-3'>
+          <AnimatePresence initial='false'>
+            {chats?.docs?.map((chat) => {
+              return (
+                <motion.div
+                  key={chat.id}
+                  initial={{ x: -170, opacity: 0.4 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -50, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: cubicBezier(0.76, 0, 0.24, 1) }}
+                >
+                  <ChatRow id={chat.id} />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
-      </div>
 
+        <div className='w-full h-6 bg-gradient-to-t from-[#111010] to-[transparent] absolute bottom-0'></div>
+      </div>
       {/*User Details*/}
       {session && (
         <div onClick={() => signOut()} className='group button justify-between rounded-lg'>

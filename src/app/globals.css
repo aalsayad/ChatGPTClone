@@ -26,3 +26,46 @@ body {
   background: #141414;
   color: #f4f4f4;
 }
+
+/* Set the width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff10;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff30;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff30;
+}
+
+/* Remove focus outline on all input fields */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+/* Remove blue outline on iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type='text'],
+  input[type='password'],
+  input[type='number'],
+  input[type='email'],
+  input[type='tel'],
+  textarea,
+  select,
+  button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
